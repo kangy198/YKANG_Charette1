@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bokor&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1 INPUT 1 OUTPUT TEMPLATE</title>
+    <style>
+        html{
+            background-color: rgb(33, 33, 33);
+            font-family: "Bokor", serif;
+            font-weight: 400;
+            font-style: normal;
+    
+        }
+
+        h1{
+            margin-top: 30px;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 60px;
+            color: antiquewhite;
+        }
+
+        /* STYLE FOR THE INPUT FIELD */
+        #charInput {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: antiquewhite;
+            font-family: "Bokor", serif;
+            text-align: center;
+
+        }
+
+        /* STYLE FOR THE SUBMIT BUTTON */
+        #submitButton {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            font-family: "Bokor", serif;
+            font-weight: 300;
+            font-style: normal;
+            font-size: 15px;
+            padding: 3px;
+            padding-right: 5px;
+            padding-left: 5px;
+            background-color: rgb(197, 186, 171) ;
+            color: black;
+            border: 2px solid rgb(0, 0, 0);
+            border-radius: 4px;
+            outline: 1px;
+        }
+
+        .frame{
+            display: none;
+            width: 50%;
+            padding: 10%; 
+            background-image: url("frame.png"); 
+            background-size: cover;
+            margin-left: auto;
+            margin-right: auto;
+    
+        }
+        /* STYLE FOR THE IMAGE */
+        #displayedImage {
+            display: none; /* This line is mandatory */
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>DREAMS</h1>
+    <!-- INPUT FIELD FOR 1 CHARACTER -->
+    <input type="text" id="charInput" maxlength="1">
+
+    <!-- BUTTON TO DISPLAY IMAGE -->
+    <button onclick="displayImage()" id="submitButton">Show Image</button>
+
+    <!-- IMAGE TO DISPLAY -->
+    <div class="frame">
+     <img id="displayedImage" src="" alt="Displayed Image">
+    </div>
+
+
+    <!-- Image Display Script Below -->
+    <script>
+        // Array of images
+        // DIRECTIONS: UPDATE THE URLS WITH THE RELATIVE LINKS OF YOUR IMAGES
+        const images = [
+            "A.png", //A
+            "B.png", //B
+            "C.png", //C
+            "D.png", //D
+            "E.png", //E
+            "F.png", //F
+            "G.png", //G
+            "H.png", //H
+            "I.png", //I
+            "J.png", //J
+            "K.png", //K
+            "L.png", //L
+            "M.png", //M
+            "N.png", //N
+            "O.png", //O
+            "P.png", //P
+            "Q.png", //Q
+            "R.png", //R
+            "S.png", //S
+            "T.png", //T
+            "U.png", //U
+            "V.png", //V
+            "W.png", //W
+            "X.png", //X
+            "Y.png", //Y
+            "Z.png"  //Z
+        ];
+
+        function displayImage() {
+            const input = document.getElementById("charInput").value.toUpperCase();
+            const imgElement = document.getElementById("displayedImage");
+            
+            // Assign an image based on character (A-Z)
+            const index = input.charCodeAt(0) - 65; // 'A' is 65 in ASCII
+            if (index >= 0 && index < images.length) {
+                imgElement.src = images[index];
+                imgElement.style.display = "block";
+            } else {
+                /* 
+                alert("Please enter a letter between A and Z.");
+                imgElement.style.display = "none";
+                */
+
+                // IF INVALID INPUT IS ENTERED, DISPLAY ALTERNATE IMAGE
+                imgElement.src = "error.png"
+                imgElement.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>
